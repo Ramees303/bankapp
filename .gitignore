@@ -1,0 +1,14 @@
+# Ignore Spring app property files with environment-specific configs
+**/application.yml
+**/application-*.yml
+
+
+# Ignore PostgreSQL volume data
+postgres_data/
+
+# Ignore ER diagrams or docs
+core_banking_er_diagram/
+
+# Ignore specific docker-compose file
+key-clock-docker-compose.yaml
+

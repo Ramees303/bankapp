@@ -1,0 +1,77 @@
++-----------------------------+       1       +----------------------------------+
+|         UserEntity         |<-------------|        BankAccountEntity         |
+|-----------------------------|              |----------------------------------|
+| id (PK)           : Long    |              | id (PK)               : Long     |
+| firstName         : String  |              | number                : String   |
+| lastName          : String  |              | type                  : Enum     |
+| email             : String  |              | status                : Enum     |
+| identificationNo  : String  |              | availableBalance    : BigDecimal |
+|                             |              | actualBalance       : BigDecimal |
+|                             |              | user_id (FK)          : Long     |
++-----------------------------+              +--------------+-------------------+
+                                                           |
+                                                           | 1
+                                                           |
+                                             +-------------v-------------------+
+                                             |         TransactionEntity       |
+                                             |---------------------------------|
+                                             | id (PK)              : Long     |
+                                             | amount             : BigDecimal |
+                                             | transactionType      : Enum     |
+                                             | referenceNumber      : String   |
+                                             | transactionId        : String   |
+                                             | account_id (FK)      : Long     |
+                                             +---------------------------------+
+
++----------------------------------+
+|      UtilityAccountEntity        |
+|----------------------------------|
+| id (PK)              : Long      |
+| number               : String    |
+| providerName         : String    |
++----------------------------------+
+
+
+################################################ user -services #######################################################
+
+
++-----------------------------+
+|        UserEntity            |
++-----------------------------+
+| id (PK)            : Long    |
+| authId             : String  |
+| identification     : String  |
+| status (ENUM)      : String  |
+| email              : String  |
++-----------------------------+
+
+############################################## transfer-service ############################################################
+
+
++---------------------------------------------+
+|             FundTransferEntity              |
++---------------------------------------------+
+| id                      (PK) : Long         |
+| transactionReference         : String       |
+| fromAccount                  : String       |
+| toAccount                    : String       |
+| amount                       : BigDecimal   |
+| status                       : Enum (String)|
++---------------------------------------------+
+
+############################################# utility -service #############################################################
+
++-------------------------------------------------+
+|             UtilityPaymentEntity                |
++-------------------------------------------------+
+| id                      (PK) : Long             |
+| providerId                   : Long             |
+| transactionId                : String           |
+| referenceNumber              : String           |
+| amount                       : BigDecimal       |
+| account                      : String           |
+| status                       : Enum (String)    |
++-------------------------------------------------+
+
+
+
