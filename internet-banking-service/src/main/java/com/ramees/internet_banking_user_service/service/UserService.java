@@ -71,7 +71,7 @@ public class UserService {
         List<UserRepresentation> userRepresentationUsingEmail=keycloakUserService.getListOfAllUsersByEmail(user.getEmail());
         user.setAuthId(userRepresentationUsingEmail.get(0).getId());
         user.setStatus(UserStatus.PENDING);
-        user.setIdentification(UUID.randomUUID().toString());
+        user.setIdentification(userResponse.getIdentificationNumber());
 
         UserEntity userEntity =userRepository.save(userMapper.convertToEntity(user));
 
